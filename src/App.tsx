@@ -3,16 +3,32 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 // @pages
-import { CharacterDetail, Characters , Login, Favourites } from '@/pages'
+import {
+  CharacterDetail,
+  Characters,
+  Login,
+  Logout,
+  Favourites
+} from '@/pages'
 
 // @components
-import { Navbar, NotFound, PrivateGuard, PublicGuard } from '@/components'
+import {
+  Navbar,
+  NotFound,
+  PrivateGuard,
+  PublicGuard
+} from '@/components'
 
 // @store
 import { store } from '@/redux'
 
 // @constants
-import { PRIVATE_BASE_PATH, PRIVATE_ROUTES, PUBLIC_BASE_PATH, PUBLIC_ROUTES } from '@/constants'
+import {
+  PRIVATE_BASE_PATH,
+  PRIVATE_ROUTES,
+  PUBLIC_BASE_PATH,
+  PUBLIC_ROUTES
+} from '@/constants'
 
 import './app.css'
 
@@ -35,6 +51,7 @@ function App() {
               <Route index element={<Navigate to={PUBLIC_ROUTES.CHARACTERS} replace />} />
               <Route path={PUBLIC_ROUTES.CHARACTERS} element={<Characters />} />
               <Route path={PUBLIC_ROUTES.CHARACTER_DETAIL} element={<CharacterDetail />} />
+              <Route path={PUBLIC_ROUTES.LOGOUT} element={<Logout />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </section>

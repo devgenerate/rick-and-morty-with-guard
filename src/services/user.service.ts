@@ -1,26 +1,5 @@
-const baseUrl = 'https://rickandmortyapi.com/api/'
-const characterUrl = `${baseUrl}/character`
+import { CHARACTERS_URL, CharacterResponse }  from '@/services'
 
-interface Description {
-    name: string;
-    url: string;
-}
-
-export interface LoadUserResponse {
-    id: number;
-    name: string;
-    status: string;
-    species: string;
-    type: string;
-    gender: string;
-    origin: Description;
-    location: Description;
-    image: string;
-    episode: string[];
-    url: string;
-    created: string;
-}
-
-export async function loadUser(): Promise<LoadUserResponse> {
-    return fetch(`${characterUrl}/1`).then(data => data.json())
+export async function loadUser(): Promise<CharacterResponse> {
+    return fetch(`${CHARACTERS_URL}/1`).then(data => data.json())
 }
